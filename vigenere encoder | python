@@ -1,0 +1,42 @@
+# CODE IN PYTHON
+
+print("~.~* Convert to Vigenere Cipher *~.~")
+
+plain = input("Please enter plaintext here:  ")
+plain = plain.upper()
+key = input("Please enter key here:  ")
+key = key.upper()
+nrtext = []
+numberkey = []
+ciphertext = ""
+
+for i in range(len(plain)):
+    value = ord(plain[i])
+    if 65<=value<=90:
+        value -= 65
+        nrtext.append(value)
+
+print(nrtext)
+
+for i in range(len(key)):
+    value = ord(key[i])
+    if 65<=value<=90:
+        value -= 65
+        numberkey.append(value)
+
+print(numberkey)
+
+for i in range(len(nrtext)):
+    j = i % len(numberkey)
+    newletter = (nrtext[i] + numberkey[j]) % 26 + 65
+    newletter = chr(newletter)
+    ciphertext = ciphertext + newletter
+
+print(ciphertext)
+
+
+
+
+
+
+
